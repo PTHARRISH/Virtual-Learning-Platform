@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form </title> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='stylesheet.css')}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+Admin Login Form</div>
+<form method=POST >
+        {{msg}}<div class="flashes">
+  {% for msd in get_flashed_messages()%}
+    <center>{{ msd }}
+  {% endfor %}
+</div>
+        <div class="field">
+          <input type="text" required name="emailaddress">
+          <label>Email Address</label>
+        </div>
+<div class="field">
+          <input type="password" required name="password">
+          <label>Password</label>
+        </div>
+<div class="content">
+          <div class="checkbox">
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">Remember me</label>
+          </div>
+<div class="pass-link">
+<a href="#">Forgot password?</a></div>
+</div>
+<div class="field">
+          <input type="submit" value="Login" name="s1">
+        </div>
+<div class="signup-link">
+Not a member? <a href="{{url_for('adregister')}}">Signup now</a></div>
+</form>
+</div> 
+</body>
+</html>
