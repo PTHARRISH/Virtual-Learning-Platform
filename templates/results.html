@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>RESULT PAGE </title> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/results.css')}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+RESULT PAGE <div class="logos">
+        <img src="{{url_for('static', filename='image/user.png')}}" class="img" />
+</div>
+        <div class="users">
+{{ms}}
+</div>
+</div>
+      <br>
+<br>
+<br>
+<br>
+{{msg}}
+<input type="hidden" id="s" value={{msg}} />
+{% block javascript %}
+<script>
+    const y= '{{ msg }}'
+    console.log(y,"ll")
+    var msg = new SpeechSynthesisUtterance(y);
+var voices = window.speechSynthesis.getVoices();
+msg.voice = voices[4]; 
+msg.volume = 1; // From 0 to 1
+msg.rate = 0.6; // From 0.1 to 10
+msg.pitch = 6
+window.speechSynthesis.speak(msg);
+</script>
+{% endblock %}
+<br>
+<br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url_for('static',filename='jquery.jkey.js')}}"></script>
+<script>
+
+  $(document).jkey('q',function(){
+    window.location = window.location.origin+"/logout";
+
+  });
+
+$(document).jkey('w',function(){
+    window.location = window.location.origin+"/results";
+
+  });
+
+  $(document).jkey('e',function(){
+    window.location = window.location.origin+"/index";
+
+  });
+  </script>
+
+<div class="field">
+  <a href="{{url_for('logout')}}" ><button class="c1">LOGOUT</button> </a>
+</div>
+<br>
+<br>
+<br>
+</div> 
+</body>
+</html>

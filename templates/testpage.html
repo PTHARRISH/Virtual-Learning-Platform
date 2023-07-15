@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TEST PAGE </title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/testpage.css')}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+        <audio autoplay src={{ url_for("static", filename = "audio/testr.mp3") }} id="myaudio"></audio>
+        <script type="text/javascript">
+          window.onload=function(){
+            document.getElementById("myaudio").play();
+          }
+          </script>
+        TEST PAGE<div class="logos">
+          <img src="{{url_for('static', filename='image/user.png')}}" class="img" />
+          </div><div class="users">
+          {{ms}}
+    </div>
+  </div>
+<style>
+
+</style>
+<script>
+  function isLetter(s)
+{
+  return s.match("^[a-zA-Z\(\)]+$");    
+}
+  async function play(id){
+    await  document.getElementById(id).play()
+          document.getElementById("answer").focus()
+  }
+   let a={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
+   let k=null;
+    document.body.addEventListener("keydown", (event) => {
+      if(event.keyCode===8) 
+        return
+      else if(!isLetter(document.getElementById("answer").value)){
+        if(event.key=="0"||event.key=="1"||event.key=="2"||event.key=="3"||event.key=="4"||event.key=="5"||event.key=="6"||event.key=="7"||event.key=="8"||event.key=="9"){
+          k=event.key.toString()
+          play(k)
+        }
+      }   
+      else if(event.keyCode===13){
+        let ans=document.getElementById("answer").value
+        if(ans.length!=1 && (ans!=='a' || ans!=='b' || ans!=='c' || ans!=='d' )){
+        console.log("no");
+        return ;
+       }
+      else{
+      a[k]=ans
+      document.getElementById("answer").value = "";
+      document.getElementById("answer").blur()
+   
+      console.log(a,"");
+      return ;
+    }
+    if(isLetter(document.getElementById("answer").value)){
+      console.log("only alpha")
+      return;
+    }
+  } 
+  
+
+        
+       
+        
+     });
+     function submit(){
+      $.ajax({
+        type : "POST",
+        url : "/ResponseFromUser",
+        data: JSON.stringify(a),
+            contentType: 'application/json;charset=UTF-8',
+        success : function(data){
+            console.log("success");
+        }
+    });}
+    </script>
+    <div class="a">
+      <ol>
+      {% for i in msg %}
+    {%set aud=i["audio"]%}
+    {%set id=i["question_no"] %}
+      <li>{{i["audio"].read}}
+      <audio controls src={{ url_for("display_image", filename = aud) }} id={{id}}></audio>
+    {% endfor %}
+    <br>
+  </ol>
+    </div> 
+    <div class="c1">
+      <input type="text" id="answer" />
+      <button onclick="submit()" >Submit</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    </div>
+     </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url_for('static',filename='jquery.jkey.js')}}"></script>
+<script>
+
+  $(document).jkey('q',function(){
+    window.location = window.location.origin+"/logout";
+
+  }); 
+
+  $(document).jkey('w',function(){
+    window.location = window.location.origin+"/termin";
+
+  }); 
+
+  $(document).jkey('e',function(){
+    window.location = window.location.origin+"/index";
+
+  }); 
+  
+  </script>
+</body>
+</html>

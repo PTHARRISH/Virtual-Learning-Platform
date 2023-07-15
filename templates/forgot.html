@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form </title> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='stylesheet.css')}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+      <audio autoplay src={{ url_for("static", filename = "audio/forgot.mp3") }} id="myaudio"></audio>
+      <script type="text/javascript">
+        window.onload=function(){
+          document.getElementById("myaudio").play();
+        }
+        </script>
+FORGOT PASSWORD Form</div>{{msg}}
+<form method=POST>
+        
+        <div class="field">
+          <input type="text" required name="emailaddress">
+          <label>Email Address</label>
+        </div>
+<div class="field">
+          <input type="password" required name="password">
+          <label>Password</label>
+        </div>
+<div class="field">
+          <input type="submit" value="REST PASSWORD" name="s1">
+        </div>
+<div class="signup-link">
+Not a member? <a href="{{url_for('register')}}">Signup now</a></div>
+</form>
+</div> 
+</body>
+</html>

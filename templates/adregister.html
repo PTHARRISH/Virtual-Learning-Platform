@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Signup Form </title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='stylesheet1.css')}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+      
+Signup Form</div>
+{{msg}}
+<form method ="POST" >
+        <div class="field">
+          <input type="text" required name="firstname">
+          <label>First Name</label>
+        </div>
+		<div class="field">
+          <input type="text" required name="lastname">
+          <label>last Name</label>
+        </div>
+		<div class="field">
+          <input type="text" required name="emailaddress">
+          <label>Email Address</label>
+        </div>
+		<div class="field">
+          <input type="tel" required name="phoneno" pattern="^\d{10}$" >
+          <label>Phone Number</label>
+        </div>
+		<div class="field">
+          <input type="password" required name="password">
+          <label>Create Password</label>
+        </div>
+<div class="content">
+          <div class="checkbox">
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">Remember me</label>
+          </div>
+<div class="pass-link">
+<a href="">Forgot password?</a></div>
+</div>
+<div class="field">
+          <input type="submit" value="Create New Account">
+        </div>
+<div class="signin-link">
+ <center><a href="{{url_for('admin')}}">Sign in now</a></center></div>
+</form>
+</div>
+</body>
+</html>

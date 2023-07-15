@@ -1,0 +1,46 @@
+<html>
+    <body><form method="POST" action="/upload" enctype="multipart/form-data">
+  <h1><strong>Test File upload</strong></h1>
+  <div class="logos">
+<img src="{{url_for('static', filename='image/user.png')}}" class="img" />
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/upload1.css')}}">
+</div><div class="users">
+{{msg}}
+</div>
+<div class="flashes">
+  {% for ms in get_flashed_messages()%}
+    <center>{{ ms }}
+  {% endfor %}
+</div>
+<br>
+  
+  <div class="form-group">
+    <label for="title">Test Name </label>
+    <input type="text" name="testtname" id="testname" class="form-controll"/>
+  </div>
+  <div class="form-group">
+    <label for="caption">Subject </label>
+    <input type="text" name="subject" id="subject" class="form-controll"/>
+  </div>
+  
+  <div class="form-group">
+    <label for="caption">Question No </label>
+    <input type="text" name="question" id="question" class="form-controll"/>
+  </div>
+  
+  <div class="form-group file-area">
+        <label for="Files">Files </label>
+    <input type="file" name="file" id="file">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <input type="submit" name="upload" >
+  </div>
+  
+</form>
+
+
+
+

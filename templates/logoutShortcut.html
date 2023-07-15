@@ -1,0 +1,11 @@
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url_for('static',filename='jquery.jkey.js')}}"></script>
+<script>
+
+  $(document).jkey('ctrl+l',function(){
+    window.location = window.location.origin+"/logout"
+   
+  }); 
+  </script>
+  </html>

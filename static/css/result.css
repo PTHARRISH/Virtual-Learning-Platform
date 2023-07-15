@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  html,body{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: #f2f2f2;
+    /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
+  }
+  .img{
+    height:52px;
+    width:52px;
+    clip-path:circle();
+  }
+  .logos
+  {
+    position: absolute;
+    top: 17px;
+    right: 250px;
+
+  }
+  ::selection{
+    background: #4158d0;
+    color: #fff;
+  }
+  .wrapper{
+    width: 1366px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  }
+  .wrapper .title{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+    user-select: none;
+    border-radius: 15px 15px 0 0;
+    background:rebeccapurple;
+  }
+  .users
+{
+  width: 1280px;
+  height: 55px;
+  text-align:right;
+}
+  .wrapper form{
+    padding: 230px 50px 180px 50px;
+  }
+
+  .field
+  {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .c1
+  {
+    font-weight: 100;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid rebeccapurple;
+    background: rebeccapurple;
+    cursor: pointer;
+    color: white;
+    padding: 11px 75px 11px 75px;
+  }
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CLASSROOM PAGE </title> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/index.css')}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+      <audio autoplay src="{{ url_for('static', filename = 'audio/index.mp3') }}" id="myaudio"></audio>
+      <script type="text/javascript">
+        window.onload=function(){
+          document.getElementById("myaudio").play();
+        }
+        </script>
+CLASSROOM PAGE
+<div class="logos">
+<img src="{{url_for('static', filename='image/user.png')}}" class="img" />
+</div><div class="users">
+{{msg}}
+</div>
+</div>
+<br>
+        <br>
+        <br>
+        <br>
+<div class="field">
+<a href="{{url_for('lesson')}}" ><button class="c1">LESSON</button></a>
+        </div>
+        <br>
+<div class="field">
+         <a href="{{url_for('test') }}"><button class="c1">TEST</button></a>
+		  </div>
+      <br>
+<div class="field">
+          <a href="{{url_for('results')}}" ><button class="c1">RESULT</button> </a>
+		  </div>
+      <br>
+      <div class="field">
+        <a href="{{url_for('logout')}}"   > <button class="c1">LOGOUT</button></a>
+    </div>
+    
+        <br>
+        <br>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url_for('static',filename='jquery.jkey.js')}}"></script>
+<script>
+
+  $(document).jkey('q',function(){
+    window.location = window.location.origin+"/logout";
+
+  }); 
+   $(document).jkey('1',function(){
+    window.location = window.location.origin+"/lesson";
+
+  }); 
+   $(document).jkey('2',function(){
+    window.location = window.location.origin+"/termin";
+
+  }); 
+   $(document).jkey('3',function(){
+    window.location = window.location.origin+"/results";
+
+  }); 
+
+  </script>      
+    </div></body>
+</html>

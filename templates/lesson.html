@@ -1,0 +1,185 @@
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>LESSON PAGE </title> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}"/>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+        LESSON PAGE
+        <div class="logos">
+            <img src="{{url_for('static', filename='image/user.png')}}" class="img" />
+            </div><div class="users">
+            {{msg}}
+      </div>
+      <audio autoplay src={{ url_for("static", filename = "audio/lesson.mp3") }} id="myaudio"></audio>
+      <script type="text/javascript">
+        window.onload=function(){
+          document.getElementById("myaudio").play();
+        }
+        </script>
+</div>
+</div>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  html,body{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: #f2f2f2;
+    /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
+  }
+  .img{
+    height:52px;
+    width:52px;
+    clip-path:circle();
+  }
+  .logos
+  {
+    position: absolute;
+    top: 17px;
+    right: 250px;
+    
+  }
+  
+  ::selection{
+    background: #4158d0;
+    color: #fff;
+  }
+  .wrapper{
+    width: 1366px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  }
+  .wrapper .title{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+    user-select: none;
+    border-radius: 15px 15px 0 0;
+    background:orange;
+  }
+  .b
+  {
+    position: relative;
+    top: 0px;
+    right:530px;
+  }  
+  .c
+  {
+    position: relative;
+    top: 0px;
+    right:520px;
+  }  
+  
+  .a
+  {
+    position: relative;
+    top: 0px;
+    right:520px;
+  }  
+  .d
+  {
+    position: relative;
+    top: 0px;
+    right:520px;
+  }  
+  .users
+{
+  width: 1280px;
+  height: 55px;
+  text-align:right;
+}
+.wrapper form{
+  padding: 230px 50px 180px 50px;
+}
+
+.field
+{
+  margin-top: 20px;
+  text-align: center;
+}
+.c1
+{
+  font-weight: 100;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 1px solid orange;
+  background: orange;
+  cursor: pointer;
+  color: white;
+  padding: 11px 75px 11px 75px;
+}
+
+</style>
+</div>
+<br>
+<br>
+      <br>
+<div class="field">
+        <a href="{{url_for('lesson_subject',subjectName='php')}}"  ><button class="c1">PHP</button></a>
+      </div>
+      <br>
+<div class="field">
+        <a href="{{url_for('lesson_subject',subjectName='python')}}" ><button class="c1">PYTHON</button></a>
+    </div>
+      <br>
+<div class="field">
+        <a href="{{url_for('lesson_subject',subjectName='java')}}"   > <button class="c1">JAVA</button></a>
+    </div>
+      <br>
+      
+<div class="field">
+        <a href="{{url_for('logout')}}"   > <button class="c1">LOGOUT</button></a>
+    </div>
+      <br>
+      <br>
+</div> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url_for('static',filename='jquery.jkey.js')}}"></script>
+<script>
+
+  $(document).jkey('q',function(){
+    window.location = window.location.origin+"/logout";
+
+  }); 
+  
+  $(document).jkey('1',function(){
+    window.location = window.location.origin+"/lesson/php";
+
+  }); 
+  
+  $(document).jkey('3',function(){
+    window.location = window.location.origin+"/lesson/java";
+
+  }); 
+
+  $(document).jkey('2',function(){
+    window.location = window.location.origin+"/lesson/python";
+
+  }); 
+
+
+  $(document).jkey('e',function(){
+    window.location = window.location.origin+"/index";
+
+  }); 
+</script>
+
+</body>
+</html>

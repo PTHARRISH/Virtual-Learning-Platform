@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CLASSROOM PAGE </title> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/test.css')}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+      <audio autoplay src="{{ url_for('static', filename = 'audio/test.mp3') }}" id="myaudio"></audio>
+      <script type="text/javascript">
+        window.onload=function(){
+          document.getElementById("myaudio").play();
+        }
+        </script>
+TEST PAGE<div class="logos">
+  <img src="{{url_for('static', filename='image/user.png')}}" class="img" />
+  </div><div class="users">
+  {{msg}}
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="field">
+          <a href="{{url_for('test_subject',subjectName='php')}}"  ><button class="c1">PHP</button></a>
+        </div>
+        
+<br>
+<div class="field">
+          <a href="{{url_for('test_subject',subjectName='python')}}" ><button class="c1">PYTHON</button></a>
+		  </div>
+      
+<br>
+<div class="field">
+          <a href="{{url_for('test_subject',subjectName='java')}}"   > <button class="c1">JAVA</button></a>
+		  </div>
+      
+<br>
+<div class="field">
+          <a href="{{url_for('logout')}}"   > <button class="c1">LOGOUT</button></a>
+		  </div>
+      
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url_for('static',filename='jquery.jkey.js')}}"></script>
+<script>
+
+  $(document).jkey('q',function(){
+    window.location = window.location.origin+"/logout";
+
+  }); 
+  
+  $(document).jkey('1',function(){
+    window.location = window.location.origin+"/test/php";
+
+  }); 
+  
+  $(document).jkey('3',function(){
+    window.location = window.location.origin+"/test/java";
+
+  }); 
+
+  $(document).jkey('2',function(){
+    window.location = window.location.origin+"/test/python";
+
+  }); 
+  
+  $(document).jkey('4',function(){
+    window.location = window.location.origin+"/index";
+
+  }); 
+  
+</script>
+<br></br>
+<br>
+</div> 
+</body>
+</html>

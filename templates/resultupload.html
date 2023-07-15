@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>RESULT PAGE </title> 
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/resultupload.css')}}">
+  </head>
+  <body>
+    
+    <div class="wrapper">
+      <div class="title">
+RESULT PAGE <div class="logos"><img src="{{url_for('static', filename='image/user.png')}}" class="img" />
+</div>
+<div class="users">
+{{msg}}
+</div>
+</div>
+</div><br>
+<br>
+        <br>
+           <div class='table'>
+        <table >
+          <th>Id</th>
+            <th>EmailAddress</th>
+            <th>Subject</th>
+            <th>Answers</th>
+            <th>Result</th>
+            <th>Time</th>
+        <tbody>
+            {% for i in res %}   
+            {%set id=i["id"]%}
+            {%set answer=i["answers"]%}
+            {%set emailaddress=i["emailaddress"] %} 
+            {%set result=i["results"] %} 
+            {%set subject=i["subject"] %}
+            {%set time=i["time"] %} 
+                   <tr><td>{{id}}</td>
+                       <td>{{emailaddress}}</td>
+                       <td>{{subject}}</td>
+                       <td>{{answer}}</td>
+                       <td>{{result}}</td>
+                       <td>{{time}}</td>
+                   </tr>
+               {% endfor %}
+           </tbody>
+        </table>
+    </div>
+    <form method="POST">
+<div class="flashes">
+  {% for ms1 in get_flashed_messages()%}
+    <center>{{ ms1 }}
+  {% endfor %}
+</div></center>
+        <div class="field">
+            <label>Id :</label>
+            <input type="text" required name="id">
+            <br>
+            <br>
+            <label>Result :</label>
+            <input type="text" required name="result">
+            <br>
+            <br>
+        
+      
+            <input type="submit" name="submit" >
+            <br>
+            <br>
+          
+          </form>     
+        </div>
+</body>
+</html>
